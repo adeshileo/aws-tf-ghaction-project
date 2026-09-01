@@ -44,3 +44,9 @@ jobs:
           TF_VAR_bucket_name: ${{vars.BUCKET_NAME}}
         run: terraform apply -auto-approve 
         working-directory: terraform 
+
+      - name: Uploading Files to S3 Bucket
+        run: |
+          aws s3 cp index.html s3://${{vars.BUCKET_NAME}}/index.html
+          aws s3 cp headshot.jpg s3://${{vars.BUCKET_NAME}}/headshot.jpg
+          aws s3 cp styles.css s3://${{vars.BUCKET_NAME}}/styles.css
