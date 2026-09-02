@@ -1,4 +1,4 @@
-name: Create s3 bucket
+name: Deploy the Website 
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
   contents: read    # This is required for actions/checkout
 
 jobs:
-  creating_bucket:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
